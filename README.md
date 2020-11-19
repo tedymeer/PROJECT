@@ -1,2 +1,2 @@
 # PROJECT
-SDA+DB KA PROJECT
+This is for project of SDA+DBA website 
