@@ -1,1 +1,1 @@
-
+Sign in and sign up buttons now showing pop-ups
