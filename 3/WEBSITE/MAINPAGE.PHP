@@ -4,6 +4,8 @@ require_once "CONFIG.PHP";
 $username = $password = $confirm_password = "";
 $username_err = $password_err = $confirm_password_err = "";
 
+
+
 if ($_SERVER['REQUEST_METHOD'] == "POST"){
 
     // Check if username is empty
