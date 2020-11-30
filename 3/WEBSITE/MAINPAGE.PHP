@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
         $sql = "SELECT UID FROM USER WHERE username = ?";
         $stmt = mysqli_prepare($conn, $sql);
         if($stmt)
-        {
+        {  
             mysqli_stmt_bind_param($stmt, "s", $param_username);
 
             // Set the value of param username
@@ -79,7 +79,7 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
             echo "Something went wrong... cannot redirect!";
         }
     }
-    mysqli_stmt_close($stmt);
+           mysqli_stmt_close($stmt);
 }
 mysqli_close($conn);
 }
