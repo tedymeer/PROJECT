@@ -11,6 +11,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     // Check if username is empty
     if(empty(trim($_POST["username"]))){
         $username_err = "Username cannot be blank";
+        echo '<script>alert("Username cannot be blank")</script>';
     }
     else{
         $sql = "SELECT UID FROM USER WHERE username = ?";
@@ -27,7 +28,9 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
                 mysqli_stmt_store_result($stmt);
                 if(mysqli_stmt_num_rows($stmt) >0)
                 {
-                    $username_err = "This username is already taken"; 
+                    $username_err = "This username is already taken";
+                    echo '<script>alert("This username is already taken")</script>';
+ 
                 }
                 else{
                     $username = trim($_POST['username']);
@@ -40,14 +43,17 @@ if ($_SERVER['REQUEST_METHOD'] == "POST"){
     }
 
     mysqli_stmt_close($stmt);
-
+  
 
 // Check for password
 if(empty(trim($_POST['password']))){
     $password_err = "Password cannot be blank";
+    echo '<script>alert("Password cannot be blank")</script>';
 }
+
 elseif(strlen(trim($_POST['password'])) < 5){
     $password_err = "Password cannot be less than 5 characters";
+    echo '<script>alert("Password cannot be less than 5 characters")</script>';
 }
 else{
     $password = trim($_POST['password']);
@@ -56,8 +62,11 @@ else{
 // Check for confirm password field
 if(trim($_POST['password']) !=  trim($_POST['confirm_password'])){
     $password_err = "Password donot match";
+    echo '<script>alert("Password donot match")</script>';
+   
+    
 }
-
+        
 
 // If there were no errors, go ahead and insert into the database
 if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
@@ -83,8 +92,9 @@ if(empty($username_err) && empty($password_err) && empty($confirm_password_err))
     }
            mysqli_stmt_close($stmt);
 }
-mysqli_close($conn);
 }
+mysqli_close($conn);
+
 
 ?>
 
