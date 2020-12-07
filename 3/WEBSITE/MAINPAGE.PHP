@@ -189,12 +189,12 @@ mysqli_close($conn);
       <div class="modal-body mx-3">
         <div class="md-form mb-5">
           <i class="fas fa-user prefix grey-text"></i>
-          <input type="text" id="orangeForm-uname" name ="username" class="form-control validate">
+          <input type="text" id="orangeForm-uname" name ="username" class="form-control validate" required>
           <label data-error="wrong" data-success="right" for="orangeForm-name">Username</label>
         </div>
         <div class="md-form mb-5">
           <i class="fas fa-envelope prefix grey-text"></i>
-          <input type="password" id="orangeForm-password" name ="password" class="form-control validate">
+          <input type="password" id="orangeForm-password" name ="password" class="form-control validate" required>
           <label data-error="wrong" data-success="right" for="orangeForm-email">Password</label>
         </div>
 
